@@ -48,16 +48,22 @@ int main() {
     /* Enter your code here. Read input from STDIN. Print output to STDOUT */  
     int n;
     vector<int> x;
+    vector<int> f;
+    vector<int> sequence;
     cin>>n;
     x.resize(n);
     for(int i=0; i < n; i++)
         cin>>x[i];
+    for(int i=0; i < n; i++)
+        cin>>f[i];
 
-    sort(x.begin(),x.end());
+    for(int i=0; i < n; i++)
+        for(int j = 0; j < f[i]; j++)
+            sequence.push_back(x[i]);
 
-    cout<<medianL(x,n)<<endl;
-    cout<<median(x,n)<<endl;
-    cout<<medianR(x,n)<<endl;
+    sort(sequence.begin(),sequence.end());
+
+    cout<<medianR(sequence,n) - medianL(sequence,n)<<endl;
          
     return 0;
 }
