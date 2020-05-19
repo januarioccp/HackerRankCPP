@@ -1,5 +1,3 @@
-all : InterquartileRange.out StandardDeviation.out Quartiles.out
-
 InterquartileRange.out : InterquartileRange.cpp
 	g++ InterquartileRange.cpp -o InterquartileRange.out
 
@@ -8,6 +6,8 @@ StandardDeviation.out : StandardDeviation.cpp
 
 Quartiles.out : Quartiles.cpp
 	g++ Quartiles.cpp -o Quartiles.out
+
+all : InterquartileRange.out StandardDeviation.out Quartiles.out
 
 clean:
 	rm -r *.out*
