@@ -3,23 +3,24 @@
 #include <vector>
 #include <iostream>
 #include <algorithm>
+#include <iomanip>
 using namespace std;
 
 bool isEven(int n){
     return !(n%2);
 }
 
-int median(vector<int> v, int n){
+double median(vector<int> v, int n){
     int xa = n/2-1;
     int xb = n/2;
     if(isEven(n))
-        return (v[xa]+v[xb])/2;
+        return double(v[xa]+v[xb])/2.0;
     else
-        return (v[xb]);
+        return double(v[xb]);
     
 }
 
-int medianL(vector<int> v, int c){
+double medianL(vector<int> v, int c){
     int n;
     if(isEven(c))
         n = c/2;
@@ -32,7 +33,7 @@ int medianL(vector<int> v, int c){
 
 }
 
-int medianR(vector<int> v, int c){
+double medianR(vector<int> v, int c){
     int n;
     if(isEven(c))
         n = c/2;
@@ -52,6 +53,7 @@ int main() {
     vector<int> sequence;
     cin>>n;
     x.resize(n);
+    f.resize(n);
     for(int i=0; i < n; i++)
         cin>>x[i];
     for(int i=0; i < n; i++)
@@ -63,7 +65,7 @@ int main() {
 
     sort(sequence.begin(),sequence.end());
 
-    cout<<medianR(sequence,n) - medianL(sequence,n)<<endl;
+    cout<<setprecision(1)<<fixed<<medianR(sequence,sequence.size()) - medianL(sequence,sequence.size())<<endl;
          
     return 0;
 }
