@@ -4,21 +4,7 @@ using namespace std;
 
 vector<string> split_string(string);
 
-void printArray(vector<long>& A, vector<long>& D) 
-{ 
-    for (unsigned i = 0; i < A.size(); i++) { 
-        if (i == 0) 
-            A[i] = D[i]; 
-  
-        // Note that A[0] or D[0] decides 
-        // values of rest of the elements. 
-        else
-            A[i] = D[i] + A[i - 1]; 
-  
-        cout << A[i] << " "; 
-    } 
-    cout << endl; 
-}
+// Based on https://www.geeksforgeeks.org/difference-array-range-update-query-o1/
 
 // Complete the arrayManipulation function below.
 long arrayManipulation(int n, vector<vector<int>> queries) {
