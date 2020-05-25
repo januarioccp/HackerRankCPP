@@ -14,7 +14,7 @@ int main(){
             if(op[1]=='+')
                 res++;
             if(op[1]=='-')
-                res++;
+                res--;
         
     }
     cout<<res<<endl;
