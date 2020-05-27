@@ -10,11 +10,13 @@ int main(){
     int n,x;
     scanf("%d %d",&n,&x);
     int day[n];
-    for(int i = 0; i < n; i++)
-        scanf("%d",&day[i]);
-
     int maximo = 0;
     int local;
+
+    int division = x/n;
+    int resto = x%n;
+
+    // x = division + resto;
 
     // Usa os x dias das ferias
         int k = 0;
@@ -23,7 +25,10 @@ int main(){
         int ii = 0;
         int jj = 0;
         int ll = 0;
-        for(int i = 0, l = 0; l < 2*n; i=(i+1)%n, l++){
+        int iii = 0;
+        for(int i = 0, l = 0; l <= n+resto; i=(i+1)%n, l++){
+            if(iii<n)
+                scanf("%d",&day[iii++]);
             for(int j = 0; j < day[i]; j++){
                 local += j+1;
                 local -= d0;
@@ -44,6 +49,6 @@ int main(){
         }
         // cout<<endl;
     
-    cout<<maximo<<endl;
+    printf("%d\n",maximo);
     return 0;
 }
