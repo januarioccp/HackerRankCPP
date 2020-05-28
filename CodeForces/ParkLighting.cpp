@@ -9,7 +9,7 @@ int main(){
     scanf("%d",&t);
     while(t--){
         scanf("%d %d",&n,&m);
-        cout<<ceil(double(n*m)/2.0)<<endl;
+        cout<<(n*m+1)/2<<endl;
     }
     return 0;
 }
