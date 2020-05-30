@@ -1,6 +1,9 @@
 //Modified C++ program to count number from 1 to n with 
 // 0 as a digit. 
 #include <iostream> 
+#include <cmath>
+#include <algorithm>
+#include <cstdlib>
 using namespace std; 
   
 // Returns count of integers having zero upto given digits 
@@ -8,7 +11,7 @@ int zeroUpto(int digits)
 { 
     // Refer below article for details 
     // https://www.geeksforgeeks.org/count-positive-integers-0-digit/ 
-    int first = (pow(10,digits)-1)/9; 
+    int first = (std::pow(10,digits)-1)/9; 
     int second = (pow(9,digits)-1)/8; 
     return 9 * (first - second); 
 } 
@@ -71,7 +74,11 @@ int countZero(string num)
 // Driver program to test the above functions 
 int main() 
 { 
-    string num = "107"; 
+    
+    for(int i=1; i < 10; i++)
+        cout<<zeroUpto(i-1)<<endl;
+
+    string num = "10"; 
     cout << "Count of numbers from 1" << " to "
          << num << " is " << countZero(num) << endl; 
   
