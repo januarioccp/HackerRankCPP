@@ -3,15 +3,18 @@
 using namespace std;
 
 // Complete the commonChild function below.
-int commonChild(string &s1, string &s2, vector<vector<int> > &C) {
-    for(unsigned i=1; i <= s1.size(); i++)
-        for(unsigned j=1; j <= s2.size(); j++){
-            if(s1[i-1] == s2[j-1])
-                C[i][j] = C[i-1][j-1] + 1;
-            else
-                C[i][j] = max(C[i][j-1], C[i-1][j]);
-        }
-    return C[s1.size()][s2.size()];
+int commonChild(string &s1, int i, string &s2, int j, vector<vector<int> > &memo) {
+    if(memo[i][j]!=0)
+        return memo[i][j];
+    if(j==0 || i==0)
+        memo[i][j] = 0;
+    else{
+        if(s1[i-1] == s2[j-1])
+           memo[i][j] = 1 + commonChild(s1,i-1,s2,j-1,memo);
+        else
+           memo[i][j]=max(commonChild(s1,i-1,s2,j,memo),commonChild(s1,i,s2,j-1,memo));
+    }
+    return memo[i][j];
 }
 
 int main()
@@ -24,12 +27,13 @@ int main()
     string s2;
     getline(cin, s2);
     
+    int n = s1.size();
     vector<vector<int> > memo;
-    memo.resize(s1.size()+1);
-    for(unsigned i=0; i < s1.size()+1; i++) 
-        memo[i].resize(s1.size()+1);
+    memo.resize(n+1);
+    for(unsigned i=0; i < n+1; i++) 
+        memo[i].resize(n+1,0);
 
-    int result = commonChild(s1, s2, memo);
+    int result = commonChild(s1,n,s2,n, memo);
 
     fout << result << "\n";
 
@@ -37,3 +41,4 @@ int main()
 
     return 0;
 }
+
