@@ -7,18 +7,27 @@ using namespace std;
 
 
 int main() {
-
+    // Declarations
     int n;
     vector<int> v;
 
+    // Initialization
     cin>>n;
     v = vector<int>(n);
 
-    for(int &i:v) cin>>i;
+    // Read input
+    for(auto &i:v)
+        cin>>i;
 
+    // Sort
     sort(v.begin(),v.end());
 
-    for(int i:v) cout<<i<<" ";
+    // Print output
+    for(auto i:v)
+        cout<<i<<" ";
 
+    // Terminate
     return 0;
+
 }
+
