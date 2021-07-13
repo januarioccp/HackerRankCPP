@@ -1,4 +1,5 @@
-# HackerRank
-My codes from HackerRank - https://www.hackerrank.com/
+# Codeforces
+My Codeforces profile - https://codeforces.com/profile/januarioccp
 
-Feel free to use them!
+Feel free to use my solutions:
+   * https://codeforces.com/contest/4/problem/A
