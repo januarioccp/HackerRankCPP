@@ -7,7 +7,7 @@ int main(){
      
     if(watermelon % 2 || watermelon==2)
         cout<<"NO"<<endl;
-    else:
+    else
         cout<<"YES"<<endl;
     return 0;    
 }
